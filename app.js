@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv/config');
-const authJwt = require('./helpers/jwt');
+// const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
 
 
@@ -20,12 +20,10 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
 
 //Routes
-const usersRoutes = require('./routes/users');
 const containersRoutes = require('./routes/containers')
 
 const api = process.env.API_URL;
 
-app.use(`${api}/users`, usersRoutes);
 app.use(`${api}/containers`, containersRoutes);
 
 //Database
